@@ -1,0 +1,253 @@
+:root{
+  --fondo:#0f1724;
+  --tarjeta:#0b1220;
+  --acento:#6ee7b7;
+  --atenuado:#94a3b8;
+  --cristal: rgba(255,255,255,0.03);
+  --cristal-fuerte: rgba(255,255,255,0.04);
+  --texto:#e6eef8;
+  --sombra: 0 8px 30px rgba(2,6,23,0.6);
+  --radio: 12px;
+}
+
+/* Reset y tipografía */
+*{box-sizing:border-box}
+html,body,#app{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;background:linear-gradient(180deg,#071024 0%, #071426 60%);color:var(--texto)}
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+  overflow-x:auto;
+}
+
+
+.contenedor{
+  width: 920px;        
+  min-width: 920px;    
+  padding: 6px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* tarjeta */
+.tarjeta{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radio);
+  padding:22px;
+  box-shadow:var(--sombra);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.03);
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* tipografías  */
+h1{
+    font-size:40px;
+    margin:0 0 18px 0;
+    color:var(--acento);
+}
+.pequeno{
+    color:var(--atenuado);
+    font-size:13px;
+}
+.pequeno-mute{
+    font-size:0.85rem;
+    color:var(--atenuado);
+}
+.centro{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* botones e inputs */
+.boton{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 14px;
+  border-radius:10px;
+  border:0;
+  background:linear-gradient(180deg,var(--acento), #4fd9a7);
+  color:#032016;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow: 0 6px 18px rgba(110,231,183,0.12);
+  transition: transform .08s ease, box-shadow .12s ease, opacity .12s; 
+  line-height:1;
+  max-width: 100%;
+  white-space:nowrap;
+} 
+.boton:hover{ 
+    transform: translateY(-1px); 
+    box-shadow: 0 10px 30px rgba(110,231,183,0.12); 
+} 
+.boton:active{ 
+    transform: translateY(0); 
+}
+
+.boton.fantasma{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.04);
+  color:var(--acento);
+  box-shadow:none;
+}
+.boton.peligro{  
+    background:linear-gradient(180deg,var(--acento), #4fd9a7); 
+    color:#032016; 
+    box-shadow: 0 6px 18px rgba(255,76,76,0.12);
+}
+
+/* layout de la app*/
+.app-grid{
+    display:block; 
+    gap:14px; 
+}
+
+/* display de dato */
+.cat-display{
+  padding:18px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.02);
+  width:100%;
+  box-sizing:border-box;
+  max-width:100%;
+}
+.cat-fact{
+  font-size:1.05rem;
+  line-height:1.4;
+  margin-bottom:12px;
+  color:var(--texto);
+
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  max-width: 100%;
+}
+.cat-meta{
+  font-size:0.85rem;
+  color:var(--atenuado);
+  margin-bottom:8px;
+}
+
+/* Lista guardada */
+.saved-list{ 
+  display:flex; 
+  flex-direction:column;
+  gap:12px; 
+  margin-top:8px;
+  align-items:stretch;
+  justify-content:flex-start;
+  width:100%;
+  box-sizing:border-box;
+  max-width:100%;
+}
+.saved-fact{
+  padding:12px; 
+  border-radius:10px; 
+  background:var(--cristal); 
+  border:1px solid rgba(255,255,255,0.02);
+  display:flex; 
+  flex-direction:column;
+  gap:8px;
+  width:100%;
+  box-sizing:border-box;
+  max-width:100%;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.saved-fact p{ 
+    margin:0; 
+    font-size:0.95rem; 
+    color:var(--texto); 
+    max-width:100%;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+.saved-date{ 
+    font-size:0.82rem; 
+    color:var(--atenuado); 
+    margin-top:6px; 
+}
+.small-note{ 
+    font-size:0.85rem; 
+    color:var(--atenuado); 
+}
+
+/* pequeño spinner */
+.spinner{
+  width:18px;height:18px;border-radius:50%;border:3px solid rgba(255,255,255,0.06);border-top-color:var(--acento);animation:girar .9s linear infinite;
+}
+@keyframes girar{ 
+    to{ transform:rotate(360deg); } 
+}
+
+/* Ajustes específicos para el header del componente FetchFact */
+.fetch-header{
+  display:flex;
+  align-items:center;   
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  min-height:40px;
+  width:100%;
+  box-sizing:border-box;
+  max-width:100%;
+}
+
+/* título dentro del header */
+.fetch-title{ flex:1; min-width:0; }
+
+/* wrapper del botón */
+.obtener-btn{
+  display:block;
+  margin-left:12px; 
+  flex: 0 0 auto;
+}
+
+.obtener-btn .boton{
+  min-width:120px;
+  height:38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+}
+
+input, textarea, select, .cat-display, .saved-fact {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: en pantallas pequeñas mantenemos comportamiento (el contenedor sigue siendo ancho fijo) */
+@media (max-width:768px){
+  body{padding:16px}
+  .tarjeta{padding:16px}
+  .boton{height:42px}
+
+  .fetch-header{
+    flex-direction:column;
+    align-items:stretch;
+    gap:8px;
+  }
+
+  .obtener-btn{
+    width:100%;
+    margin-left:0;
+    margin-top:6px;
+  }
+
+  .obtener-btn .boton{
+    width:100%;
+  }
+}
+
+/* Foco accesible */
+:focus{outline: 3px solid rgba(110,231,183,0.12); outline-offset: 2px}
